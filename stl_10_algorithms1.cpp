@@ -30,12 +30,20 @@ int main()
         for long long use __builtin_popcountll() instead of __builtin_popcount()
     */
 
-    std::string s = "213";
+    std::string s = "231";
     do
     {
         std::cout<<s<<" ";
     } while (std::next_permutation(s.begin(), s.end()));
     std::cout<<"\n";
+
+    s = "231";
+    do
+    {
+        std::cout<<s<<" ";
+    } while (std::prev_permutation(s.begin(), s.end()));
+    std::cout<<"\n";
+    
     std::sort(s.begin(), s.end());
     do
     {
@@ -59,6 +67,15 @@ int main()
     if (it4 != v.end())
     std::cout<<"first odd number "<<*it4<<"\n";
 
+    std::vector<int> v1 = {1, 2, 5, 5, 7, 9, 9};
+    auto it5 = std::adjacent_find(v1.begin(), v.end());
+    if (it5 != v1.end())
+    std::cout<<"Two adjacent elements are "<<*it5<<" and "<<*(++it5)<<"\n";
+    auto cmp = [](int a, int b) { return (b - a) == 2; };
+    it5 = std::adjacent_find(v1.begin(), v.end(), cmp);
+    if (it5 != v1.end())
+    std::cout<<"Two adjacent elements are "<<*it5<<" and "<<*(++it5)<<"\n";
+
     std::cout<<"############## count ##############\n";
     int n = std::count(v.begin(), v.end(), 7);
     std::cout<<"no. of occurace of 7 is "<<n<<"\n";
@@ -66,9 +83,9 @@ int main()
     std::cout<<"no. of even is "<<n<<"\n";
     
     std::cout<<"############## index ##############\n";
-    auto it5 = std::find(v.begin(), v.end(), 0);
-    if(it5 != v.end()){
-        std::cout<<"0 exist at index "<<std::distance(v.begin(), it5)<<"\n";
+    auto it6 = std::find(v.begin(), v.end(), 0);
+    if(it6 != v.end()){
+        std::cout<<"0 exist at index "<<std::distance(v.begin(), it6)<<"\n";
     }
     return 0;
 }

@@ -1,32 +1,32 @@
-#include<bits/stdc++.h>
-using namespace std;
+#include<stack>
+#include<iostream>
 
 
-void PrintStack(stack<int> s)
+void PrintStack(std::stack<int> s)
 {
     while(!s.empty())
     {
-        cout<<s.top()<<" ";
+        std::cout<<s.top()<<" ";
         s.pop();
     }
-    cout<<"\n";
+    std::cout<<"\n";
 }
 int main()
 {
-    stack<int> s;
+    std::stack<int> s;
     for(int i=1;i<=5;i++)
     s.push(i);
     
-    cout<<"The elements of the stack are:"<<endl;
+    std::cout<<"The elements of the stack are:"<<std::endl;
     PrintStack(s);
     
-    cout<<"The size of the stack: "<<s.size()<<endl;
-    cout<<"The top element of the queue: "<<s.top()<<endl;
-    cout<<"Pop the top element: "<<endl;
+    std::cout<<"The size of the stack: "<<s.size()<<std::endl;
+    std::cout<<"The top element of the queue: "<<s.top()<<std::endl;
+    std::cout<<"Pop the top element: "<<std::endl;
     s.pop();
     PrintStack(s);
 
-    stack<int> s1;
+    std::stack<int> s1;
     for(int i=1;i<=5;i++)
     s1.push(i*10);
 
@@ -34,6 +34,6 @@ int main()
     s.swap(s1);
     PrintStack(s);
 
-    cout<<s.empty()<<"\n";
+    std::cout<<s.empty()<<"\n";
     return 0;
 }

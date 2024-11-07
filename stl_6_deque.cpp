@@ -1,16 +1,17 @@
-#include<bits/stdc++.h>
-using namespace std;
+#include<deque>
+#include<algorithm>
+#include<iostream>
 
-void PrintDeque(deque<int> dq)
+void PrintDeque(std::deque<int> dq)
 {
     for(auto i: dq)
-    cout<<i<<" ";
-    cout<<"\n";
+    std::cout<<i<<" ";
+    std::cout<<"\n";
 }
 
 int main()
 {
-    deque<int> dq;
+    std::deque<int> dq;
 
     dq.push_back(1); // O(1)
     dq.push_back(2);
@@ -23,25 +24,25 @@ int main()
     dq.emplace_front(6);
     PrintDeque(dq);
 
-    cout<<dq[0]<<" \n"; // random access is available, it is a continuous memory
+    std::cout<<dq[0]<<" \n"; // random access is available, it is a continuous memory
 
-    cout<<dq.front()<<" "<<dq.back()<<"\n";
+    std::cout<<dq.front()<<" "<<dq.back()<<"\n";
 
-    deque<int>::iterator it1 = dq.begin(), it2 = dq.end(); // auto is a smart keyword who automatically understand the datatype
-    cout<<*it1<<" "<<it1[1]<<" "<<*(++it1)<<" "<<*(++it1)<<" "<<*(--it2)<<"\n";
+    std::deque<int>::iterator it1 = dq.begin(), it2 = dq.end(); // auto is a smart keyword who automatically understand the datatype
+    std::cout<<*it1<<" "<<it1[1]<<" "<<*(++it1)<<" "<<*(++it1)<<" "<<*(--it2)<<"\n";
 
     dq.insert(dq.begin() + 1, 8);
     PrintDeque(dq);
 
-    deque<int> dq1;
+    std::deque<int> dq1;
     dq1.emplace_back(10);
     dq1.emplace_back(30);
     dq1.emplace_front(20);
     dq.insert(dq.begin() + 1, dq1.begin(), dq1.end());
     PrintDeque(dq);
-    cout<<dq.size()<<"\n";
+    std::cout<<dq.size()<<"\n";
 
-    auto it = find(dq.begin(), dq.end(), 3);
+    auto it = std::find(dq.begin(), dq.end(), 3);
     if(it != dq.end()){
         dq.erase(it);
         PrintDeque(dq);
@@ -52,9 +53,9 @@ int main()
 
     dq.swap(dq1);
     PrintDeque(dq);
-    cout<<dq.empty()<<"\n";
+    std::cout<<dq.empty()<<"\n";
     dq.clear();
-    cout<<dq.empty()<<"\n";
+    std::cout<<dq.empty()<<"\n";
 
     return 0;
 }

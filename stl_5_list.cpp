@@ -1,16 +1,17 @@
-#include<bits/stdc++.h>
-using namespace std;
+#include<list>
+#include<algorithm>
+#include<iostream>
 
-void PrintList(list<int> l)
+void PrintList(std::list<int> l)
 {
     for(auto i: l)
-    cout<<i<<" ";
-    cout<<"\n";
+    std::cout<<i<<" ";
+    std::cout<<"\n";
 }
 
 int main()
 {
-    list<int> l;
+    std::list<int> l;
 
     l.push_back(1); // O(1)
     l.push_back(2);
@@ -23,23 +24,23 @@ int main()
     l.emplace_front(6);
     PrintList(l);
 
-    cout<<l.front()<<" "<<l.back()<<"\n";
+    std::cout<<l.front()<<" "<<l.back()<<"\n";
 
-    list<int>::iterator it1 = l.begin(), it2 = l.end(); // auto is a smart keyword who automatically understand the datatype
-    cout<<*it1<<" "<<*(++it1)<<" "<<*(++it1)<<" "<<*(--it2)<<"\n"; // remember since list is not a continuous memory, so it+1/it-1 is hazardious, use ++/-- instead
+    std::list<int>::iterator it1 = l.begin(), it2 = l.end(); // auto is a smart keyword who automatically understand the datatype
+    std::cout<<*it1<<" "<<*(++it1)<<" "<<*(++it1)<<" "<<*(--it2)<<"\n"; // remember since list is not a continuous memory, so it+1/it-1 is hazardious, use ++/-- instead
 
     l.insert(++l.begin(), 8);
     PrintList(l);
 
-    list<int> l1;
+    std::list<int> l1;
     l1.emplace_back(10);
     l1.emplace_back(30);
     l1.emplace_front(20);
     l.insert(++++l.begin(), l1.begin(), l1.end());
     PrintList(l);
-    cout<<l.size()<<"\n";
+    std::cout<<l.size()<<"\n";
 
-    auto it = find(l.begin(), l.end(), 3);
+    auto it = std::find(l.begin(), l.end(), 3);
     if(it != l.end()){
         l.erase(it);
         PrintList(l);
@@ -50,9 +51,9 @@ int main()
 
     l.swap(l1);
     PrintList(l);
-    cout<<l.empty()<<"\n";
+    std::cout<<l.empty()<<"\n";
     l.clear();
-    cout<<l.empty()<<"\n";
+    std::cout<<l.empty()<<"\n";
 
     return 0;
 }

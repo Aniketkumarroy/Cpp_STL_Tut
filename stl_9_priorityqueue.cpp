@@ -1,18 +1,19 @@
-#include<bits/stdc++.h>
-using namespace std;
-void PrintPriorityqueue(priority_queue<int> pq)
+#include<queue>
+#include<iostream>
+
+void PrintPriorityqueue(std::priority_queue<int> pq)
 {
     // priority_queue<int> pq2=pq;
     while(!pq.empty())
     {
-        cout<<pq.top()<<" ";
+        std::cout<<pq.top()<<" ";
         pq.pop();
     }
-    cout<<"\n";
+    std::cout<<"\n";
 }
 int main()
 {
-    priority_queue<int> pq; // by default it makes a max heap data structure
+    std::priority_queue<int> pq; // by default it makes a max heap data structure
 
     /*
     
@@ -27,16 +28,16 @@ int main()
     pq.push(3);
     pq.push(2);
     
-    cout<<"The elements of the priority queue are:"<<endl;
+    std::cout<<"The elements of the priority queue are:"<<std::endl;
     PrintPriorityqueue(pq);
     
-    cout<<"The size of the priority queue: "<<pq.size()<<endl;
-    cout<<"The top element of the priority queue: "<<pq.top()<<endl; // O(1)
-    cout<<"Pop the top element: "<<endl;
+    std::cout<<"The size of the priority queue: "<<pq.size()<<std::endl;
+    std::cout<<"The top element of the priority queue: "<<pq.top()<<std::endl; // O(1)
+    std::cout<<"Pop the top element: "<<std::endl;
     pq.pop(); // O(log(n))
     PrintPriorityqueue(pq);
 
-    priority_queue<int> pq1;
+    std::priority_queue<int> pq1;
     pq1.push(10);
     pq1.push(50);
     pq1.push(30);
@@ -47,6 +48,6 @@ int main()
     pq.swap(pq1);
     PrintPriorityqueue(pq);
 
-    cout<<pq.empty()<<"\n";
+    std::cout<<pq.empty()<<"\n";
     return 0;
 }
